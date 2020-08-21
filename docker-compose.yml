@@ -23,7 +23,7 @@ services:
       - ./:/home/node/app     
     ports: 
       - 8081:3000
-    command: bash -c "npm install ; npm install -g --unsafe-perm nodemon && nodemon index"
+    command: bash -c "npm install ; npm install -g nodemon && nodemon index"
     # command: bash -c "nodemon index"
     depends_on:
       - db

@@ -1,8 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('library', 'root', 'library', {
-    host: 'database_container',
-    dialect: 'mysql'
-});
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/sequelize_db_connection');
 
 const Author = sequelize.define('Author', {
     id: {
@@ -25,5 +22,6 @@ const Author = sequelize.define('Author', {
     timestamps: false,
     tableName: 'author'
 });
+
 
 module.exports = Author;
