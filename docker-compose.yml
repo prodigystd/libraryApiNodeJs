@@ -1,12 +1,13 @@
 version: "3.7"
 services:
-  db: 
+  db:
     image: mysql:8
     container_name: database_container
-    ports: 
+    ports:
       - 3306:3306
     volumes:
-       - ./library-2020_02_10_11_54_02-dump.sql:/docker-entrypoint-initdb.d/init.sql
+       - ./dump.sql:/docker-entrypoint-initdb.d/init.sql
+       - ./:/home/node/app
     environment:
         MYSQL_ROOT_PASSWORD: 'library'
         MYSQL_DATABASE: 'library'
@@ -20,8 +21,8 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - ./:/home/node/app     
-    ports: 
+      - ./:/home/node/app
+    ports:
       - 8081:3000
     command: bash -c "npm install ; npm install -g nodemon && nodemon index"
     # command: bash -c "nodemon index"

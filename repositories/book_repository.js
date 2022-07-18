@@ -1,6 +1,5 @@
 const Book = require('../models/book');
 const Author = require('../models/author');
-const AuthorBook = require('../models/author_book');
 const { Op, QueryTypes } = require("sequelize");
 const sequelize = require('../config/sequelize_db_connection');
 
